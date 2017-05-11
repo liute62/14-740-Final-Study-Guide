@@ -183,14 +183,57 @@ Collision Detection
 ## L22 Link Layer Devices
 
 ### Describe the Address Resolution Protocol
-1) Mission
-2) Frame Fields
-3) Transmission Mechanism
-4) Caching
-5) Security
-6) Gratuitous Use
+1) Mission: Translate a network-layer address (IP) to a link-layer address (MAC)
+2) Frame Fields: Sender Ethernet and IP address | Target Ethernet and IP address
+3) Transmission Mechanism: Broadcast or direcly response, and how about address of another subnet? 
+4) Caching: 
+5) Security: ARP frames are not authenticated.
+6) Gratuitous Use: ARP can be an "announcement" protocol, can send an ARP frame just to update other node's ARP tables
 
 ### Describte repeater, hub, switch, and bridge
+1) Repeater: echoes signal from one wire to another
+2) Hub: echoes signal from one wire to many, at the same rate for all links
+   * problem: Signals are heard everywhere, collisions happened
+3) Switch/Bridge:  LAN bridge (standards speak) == LAN switch(industrial speak)
+   * Stores and forwards frames
+   * Selectively forwards the frame based on destination address
 
-### 
+### Analyze and describe the self-learning capabilities of a switch for forwarding scenarios
+1) A switch **filters** packets
+   * same link frames not usually forwarded onto other links
+2) links become separate **collision domains**
+
+How does a switch determine which interface / link to forward a frame?
+
++ Self-Learning
+
+Learns source ethernet address
+1) if is in the forwarding table:
+   * Lout = link of destination
+   * if Lin == Lout then drop f
+   * else forward f on Lout
+2) else: flood //forward on all links except Lin
+
+Avoiding Loops
++ Solution: create a spanning tree
+
+### Describe the spanning tree protocol (IEEE 802.1D) & distributed aspects
++ Defined in IEEE 802.1D
++ Uses an edge weight based on interface data rate
+  * 10 Mbps is cost 100
+  * 1 Gbps is cost 4
++ Distributed aspects:
+  * All root switch (candidates) think they are the root switch, then send a config message every 2 seconds, finally reach a stable stage
+
+### Analyze a multi-switch/LAN scenario using the spanning tree protocol
+?
+1) Select switch to be the root of the tree
+   * by lowest priority value
+2) Determine **root port** for each switch
+   * root port is one with the least-cost path to root switch
+3) Select **desinated port** for each link
+4) All switches disable all ports that are not designated or root ports
+
+## Virtual Link Layer
+
 
