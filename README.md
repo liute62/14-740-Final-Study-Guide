@@ -180,5 +180,17 @@ Collision Detection
 
 ### solving interaction of several Ethernet senders and receivers, collisions, propagation times
 
+## L22 Link Layer Devices
 
+### Describe the Address Resolution Protocol
+1) Mission
+2) Frame Fields
+3) Transmission Mechanism
+4) Caching
+5) Security
+6) Gratuitous Use
+
+### Describte repeater, hub, switch, and bridge
+
+### 
 
