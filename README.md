@@ -1,7 +1,7 @@
 # 14-740-Final-Study-Guide
 
 
-## Network Measurement
+## L18 Network Measurement
 
 ### purposes of network measurement
 1. short-term
@@ -41,7 +41,7 @@
 
 
 
-## Congestion Control The Router’s View
+## L19 Congestion Control The Router’s View
 
 ### packet scheduling algorithms vs drop policies
 + Packet scheduling: ordering of transmission
@@ -111,6 +111,74 @@ Calculate Probability:
 * pa <- pb / (1 - count * pb) count is the number of packets not dropped while Avg has been medium
 * pa is the actual drop probability
 
+## L20 Routing Instability
+
+## L21 Link Layer; Ethernet
+
+### Mission, scope, addressing mechanism, data types and responsibilities/services of the Data Link Layer
++ Mission: The **Data Link Layer** transfers frames from one node, over a link, to an adjacent node
+    * service provided to network layer
++ Data type: frame
++ Services: Each data link protocol provides different services
+    * Framing: encapsulate datagram into frame, identify source, destination with addresses
+    * Link access: use medium access control (MAC) protocol (PoP or broadcast)
+    * Error Detection: errors caused by signal attenuation, noise. retransmission or drops frame
+    * Error Correction: receiver identifies and corrects bit error(s) without retransmission
+    * Reliable Delivery: critical for wireless links -> high error rates
+
+### Differences between broadcast and point-to-point links
+**Links**: Communication channel that connects adjacent nodes (host or router)
+
++ Point-to-Point (sender to receiver)
+  * point-to-point link between Ethernet switch and host
+  * Point-to-Point Protocol used to negotiate, establish, authenticate, etc
++ Broadcast
+  * traditional Ethernet
+  * 802.11 wireless LAN
+
+Router has multiple link layers -- Each link is a subnet
+
+### Three different general types of media access protocols
+1) Multiple access protocol: a distributed alrotihm that determines how nodes share channel
+   * **collision** if node receives two or more signals at the same time
+   * communication about channel sharing must use channel itself
++ Channel Partitioning
+  * Divide the channel into pieces
+  * Let each node use a piece of the channel
+  * Problem, channel pre-setup, waste due to bursty network
++ Taking Turns
+  * Like a time slot partition scheme, but nodes with more to send can take longer turns
+  * Polling Protocol: Master node asks each node in turn to send
+  * Token-passing: special-purpose frame is passed in fiexd order from node to node
++ Random Access
+  * Deal with Collision when multiple nodes can send simultaneously
+  * Collisions can be avioded or detected, for detected: CSMA/CD Protocols
+  * CSMA/CD: Collision Detection: Listen as you talk, if you hear someone else, be quiet
+
+### CSMA/CD protocol description and Ethernet's implementation
+1) before transmitting, listen
+2) if channel is sensed idle, send the frame
+3) if collision is detected, abort transmission
+
+Collision Detection
+1) Easy in wired LANs
+   * Measure signal strengths, compare the transmitted and received signals
+2) Difficult in wireless LANs
+   * Receiver is shut off during transmission
+   
+### Space-time diagrams to describe or solve problems relating to media access and Ethernet's implementation
+1) See figure of slides page 23
+2) Min transmission time must be long enough for collisions to propagate
+
+### Ethernet frame format
+1) Preamble: 8 bytes, at the begining, used to synchronize receiver, sender clock rates
+2) Dest Addr: 6 bytes, 3 bytes indicate adapter manufacturer, 3 bytes generated uniquely
+3) Source Addr: 6 bytes, ...
+4) Type: 2 bytes: Mostly IP
+5) Data: 46 - 1500 bytes, short datagrams padded to 46 bytes
+6) CRC: 4 bytes: Error Checking
+
+### solving interaction of several Ethernet senders and receivers, collisions, propagation times
 
 
 
