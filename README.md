@@ -271,14 +271,41 @@ MPLS Forwarding process don't examine the iP header, except at entry to MPLS net
 ### explain the challenges of a wireless subnet
 1) range limits
 2) mobility
+   * Routing and addressing, how can a TCP flow sustain while user moves to a different subnet?
 3) receiver shutdown
+   * Receiver must be sensible
 4) noise
 5) multi-path
+   * Receiver "sees" signal that is the sum of the line-of-sigh signal plus those from all other paths
 6) hidden terminal
+   * Two hosts may be prevented from hearing each other's transmissions
 7) exposed terminal problems
+   * A -> A', B -> B', one of them will shutup due to hear other guys talking
 
-### describe the CSMA/CA algorithm and how it helps overcomes some of the wireless challenges
+### Describe the CSMA/CA algorithm and how it helps overcomes some of the wireless challenges
++  
++ 
++ 
+### Use of channel reservations to avoid collisions
++ A node can request access to the channel to ensure no collisions from hidden terminals
++ 
 
+### Some features of the 802.11 standard
+1) operating modes
+   * Ad-hoc: Nodes create network, but unattached to internet
+   * Infrastructure: Access Point(AP) connect wireless subnet to wired network
+   * Point-to-point: Use directional antennas to extend range
+2) security
+3) frame format
+4) power management
+   * Node can tell AP that it will go to sleep for short time period
+   * AP will buffer frames until it awakes
+5) rate adaptation
+   * transmission rate can be tuned to the environment
 
 ## L25 Software Defined Networking
 
+### Describe the structure of a software-defined network
+1) flow-tables(and actions therein)
+2) controllers (and actions therein)
+3) domains
