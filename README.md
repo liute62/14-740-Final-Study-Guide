@@ -234,6 +234,51 @@ Avoiding Loops
 3) Select **desinated port** for each link
 4) All switches disable all ports that are not designated or root ports
 
-## Virtual Link Layer
+## L23 Virtual Link Layer
 
+### describe the use of virtual LANs (VLAN) to allow multiple subnets to be connected with a single port-based switch.
+
+1) broadcast domain separation
+   *  
+2) flexibility for re-assigning hosts within the VLAN
+   * 
+3) connection mechanisms for when the same VLAN is connected across switches.
+   * Trunked connection: port belongs to all VLANs -> all frames at that port are forwarded to all VLANs
+   
+### how link virtualization allows links to be more than just a simple "channel connecting adjacent nodes"
+
+### diagram the encapsulation of messages inside segments inside packets inside frames
+?
+1) for ICMP
+   
+2) for ARP
+   
+### describe MPLS
+MPLS Forwarding process don't examine the iP header, except at entry to MPLS network
+1) advantages
+   * IP routing is slowed by the variable length address searching in the forwarding table
+   * MPLS replaces IP routing within a network by using a fixed length label
+2) labeled frame formats
+   * Ethernet Header | MPLS Header | IP Header
+3) router operations
+   * Inside the network: on receipt of packet, lookup label
+   * Edge of the network: Incoming packet: convert IP to label. Outgoing packet: pop MPLS header.
+4) describe what an MPLS forwarding table might look like
+   
+
+## L24 Wireless Networks	
+
+### explain the challenges of a wireless subnet
+1) range limits
+2) mobility
+3) receiver shutdown
+4) noise
+5) multi-path
+6) hidden terminal
+7) exposed terminal problems
+
+### describe the CSMA/CA algorithm and how it helps overcomes some of the wireless challenges
+
+
+## L25 Software Defined Networking
 
