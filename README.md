@@ -240,6 +240,7 @@ Avoiding Loops
 ## L23 Virtual Link Layer
 
 ### describe the use of virtual LANs (VLAN) to allow multiple subnets to be connected with a single port-based switch.
+Static VLAN: VLAN=Group of Ports
 
 1) broadcast domain separation
    *  
@@ -286,12 +287,17 @@ MPLS Forwarding process don't examine the iP header, except at entry to MPLS net
    * A -> A', B -> B', one of them will shutup due to hear other guys talking
 
 ### Describe the CSMA/CA algorithm and how it helps overcomes some of the wireless challenges
-+  
-+ 
-+ 
+Make collision happened as less
++ Listen for specific time
+   * if medium is not free: Exponential Backoff
+   * if medium is free: 1) Transmit **entire** frame 2) Await ACK frame 3) If no ACK, then Exponential Backoff
++ Reason:
+   * Sender doesn't know if a collision happened with a hidden terminal
+
 ### Use of channel reservations to avoid collisions
 + A node can request access to the channel to ensure no collisions from hidden terminals
-+ 
++ AP grants permission with a Clear to Send (CTS) frame
++ ALL nodes can hear the AP, even the hidden terminal situation.
 
 ### Some features of the 802.11 standard
 1) operating modes
@@ -304,7 +310,7 @@ MPLS Forwarding process don't examine the iP header, except at entry to MPLS net
    * Node can tell AP that it will go to sleep for short time period
    * AP will buffer frames until it awakes
 5) rate adaptation
-   * transmission rate can be tuned to the environment
+   * transmission rate can be tuned to the environment, as frames are lost, reduce rate
 
 ## L25 Software Defined Networking
 
